@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fare Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"; rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .fare-box {
+            background-color: navy;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+    </style>
+
+    
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand md navbar-dark fixed-top" style="background-color: #6f42c1;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="image (11).png" alt="" width="50px" height="50px">
+            </a>
+                <div class="colapse navbar-collapse justify-content-center+">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html" target="_self" style="color: rgb(255, 255, 255); padding-right: 10px;">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="page2.html" target="_self" style="color: rgb(255, 255, 255); padding-right: 10px">Train Schedule</a></li>
+                        <li class="nav-item"><a class="nav-link" href="page3.html" target="_self" style="color: rgb(255, 255, 255); padding-right: 10px">Help</a></li>
+                    </ul>
+
+                    <form class="d-flex">
+                        <input class="form-control" type="text" placeholder="search">
+                        <button class="btn btn-success" type="button">Search</button>
+                    </form>
+                </div>
+        </div>
+    </nav>  
+    
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h2 style="color: white; background-color: black; max-width: 50%; text-align: center; margin: 0 auto; font-family:'Courier New', Courier, monospace; font-weight: bolder;"
+    >Fare Guide
+    </h2>
+
+    <hr/>
+    
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="r4c4ZpN.png" alt="Train Map" class="img-fluid rounded">
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <label class="form-label" style="text-align: center;">LEAVING FROM:</label>
+                    <select id="from" class="form-select">
+                        <option value="none">Select One</option>`
+                        <option value="0">Roosevelt</option>
+                        <option value="1.87">Balintawak</option>
+                        <option value="4.12">Monumento</option>
+                        <option value="5.207">5th Ave.</option>
+                        <option value="6.161">R. Papa</option>
+                        <option value="6.821">Abad Santos</option>
+                        <option value="7.748">Blumentritt</option>
+                        <option value="8.419">Tayuman</option>
+                        <option value="9.037">Bambang</option>
+                        <option value="9.685">Doroteo Jose</option>
+                        <option value="10.37">Corriedo</option>
+                        <option value="11.095">Central Terminal</option>
+                        <option value="12.309">United Nations</option>
+                        <option value="13.063">Pedro Gil</option>
+                        <option value="13.857">Quirino Ave.</option>
+                        <option value="14.684">Vito Cruz</option>
+                        <option value="15.745">Gil Puyat</option>
+                        <option value="16.475">Libertad</option>
+                        <option value="17.485">EDSA</option>
+                        <option value="18.073">Baclaran</option>
+                    </select>
+                    
+                    <label class="form-label mt-3" style="text-align: center;">GOING TO:</label>
+                    <select id="end" class="form-select">
+                        <option value="none">Select One</option>`
+                        <option value="0">Roosevelt</option>
+                        <option value="1.87">Balintawak</option>
+                        <option value="4.12">Monumento</option>
+                        <option value="5.207">5th Ave.</option>
+                        <option value="6.161">R. Papa</option>
+                        <option value="6.821">Abad Santos</option>
+                        <option value="7.748">Blumentritt</option>
+                        <option value="8.419">Tayuman</option>
+                        <option value="9.037">Bambang</option>
+                        <option value="9.685">Doroteo Jose</option>
+                        <option value="10.37">Corriedo</option>
+                        <option value="11.095">Central Terminal</option>
+                        <option value="12.309">United Nations</option>
+                        <option value="13.063">Pedro Gil</option>
+                        <option value="13.857">Quirino Ave.</option>
+                        <option value="14.684">Vito Cruz</option>
+                        <option value="15.745">Gil Puyat</option>
+                        <option value="16.475">Libertad</option>
+                        <option value="17.485">EDSA</option>
+                        <option value="18.073">Baclaran</option>
+                    </select>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-primary" style="width: 100%; margin-top: 10px" onclick="calculateFare()">Get Fare</button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-primary" style="width: 100%; margin-top: 10px" onclick="discountedfare()">Discounted Fare</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="fare-box" id="fareDisplay">Ticket Price: <br> 0.00</div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-3 fixed-bottom" style="font-size: 10px;">
+        <hr/>
+        &copy; Luis Nazareno & Alonso Asuncion <br> Grade 9 Sapphire Las Piñas
+    </footer>
+    
+    <script>
+        function calculateFare() {
+            var base_price = 13;
+            var max_price = 28;
+            var max_distance = 18.073;  // distance from Roosevelt to Baclaran
+
+            var starting = Number(document.getElementById('from').value);
+            var ending = Number(document.getElementById('end').value);
+
+            // is to compute the absolute value
+            var distance;
+            if (ending > starting) {
+                distance = ending - starting;
+            } else {
+                distance = starting - ending;
+            }
+
+            if (ending == starting) {
+                alert("Please select valid stations.");
+            }
+
+            // calculate the fare boy
+            var price = base_price + ((distance * (max_price - base_price)) / max_distance);
+
+            // so price dont go below base price
+            if (price < base_price) {
+                price = base_price;
+            }
+
+            // so price does not exceed max price
+            if (price > max_price) {
+                price = max_price;
+            }
+
+            // show it
+            document.getElementById("fareDisplay").innerHTML = "Ticket Price: <br> ₱" + price.toFixed(2);
+
+            return price;
+        }
+
+        function discountedfare() {
+            var price = calculateFare(); // Get the calculated fare
+            if (price) {
+                var discounted = price * 0.8; // Apply 20% discount
+                document.getElementById("fareDisplay").innerHTML = `Discounted Ticket Price: <br> ₱` + discounted.toFixed(2) + '<br>' + '<p style="font-size: 10px">Discounted by 20%</p>';
+            } else {
+                document.getElementById("fareDisplay").innerHTML = "Please select valid stations.";
+            }
+        }
+    </script>
+</body>
+</html>
